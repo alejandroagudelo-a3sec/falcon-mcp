@@ -84,6 +84,8 @@ class FalconMCPServer:
             instructions="This server provides access to CrowdStrike Falcon capabilities.",
             debug=self.debug,
             log_level="DEBUG" if self.debug else "INFO",
+            host=os.environ.get("FALCON_MCP_HOST", "127.0.0.1"),
+            port=int(os.environ.get("FALCON_MCP_PORT", "8000")),
             stateless_http=self.stateless_http,
         )
 
